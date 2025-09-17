@@ -10,6 +10,11 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Navbar from "./Navbar";
+import Vehicles from "./pages/Vehicles";
+import Optimizations from "./pages/Optimizations";
+import Dashboard from "./pages/Dashboard";
+import Locations from "./pages/Locations";
+import AddLocation from "./pages/AddLocation";
 
 function AppContent() {
   const location = useLocation();
@@ -28,6 +33,11 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/vehicles" element={<Vehicles />} />
+          <Route path="/locations" element={<Locations />} />
+          <Route path="/locations/addlocation" element={<AddLocation />} />
+          <Route path="/optimizations" element={<Optimizations />} />
         </Routes>
       </div>
     </>

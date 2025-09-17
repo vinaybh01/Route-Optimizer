@@ -43,6 +43,23 @@ function Navbar() {
     navigate("/");
   };
 
+  // Function to check if current page is active
+  const isActivePage = (path) => {
+    return location.pathname === path;
+  };
+
+  // Function to get navigation item styling
+  const getNavItemStyle = (path) => {
+    const baseStyle =
+      "px-4 py-2.5 rounded-xl font-medium transition-all duration-300 ease-in-out transform hover:scale-105";
+
+    if (isActivePage(path)) {
+      return `${baseStyle} bg-gradient-to-r from-cyan-500/20 to-blue-600/20 text-cyan-300 border border-cyan-400/30 shadow-lg shadow-cyan-500/20 font-semibold`;
+    } else {
+      return `${baseStyle} text-gray-300 hover:text-white hover:bg-white/5 hover:border hover:border-white/10`;
+    }
+  };
+
   return (
     <nav className="bg-black/80 backdrop-blur-xl border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,34 +91,30 @@ function Navbar() {
 
           {/* Desktop Navigation - Only show when logged in */}
           {isLoggedIn && (
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-3">
               <button
                 onClick={handleDashboard}
-                className="text-gray-300 hover:text-white transition-colors duration-200 font-medium relative group"
+                className={getNavItemStyle("/dashboard")}
               >
                 Dashboard
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
               </button>
               <button
                 onClick={handleVehicles}
-                className="text-gray-300 hover:text-white transition-colors duration-200 font-medium relative group"
+                className={getNavItemStyle("/vehicles")}
               >
                 Vehicles
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
               </button>
               <button
                 onClick={handleLocations}
-                className="text-gray-300 hover:text-white transition-colors duration-200 font-medium relative group"
+                className={getNavItemStyle("/locations")}
               >
                 Locations
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
               </button>
               <button
                 onClick={handleOptimizations}
-                className="text-gray-300 hover:text-white transition-colors duration-200 font-medium relative group"
+                className={getNavItemStyle("/optimizations")}
               >
                 Optimizations
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
               </button>
             </div>
           )}
