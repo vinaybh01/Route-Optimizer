@@ -15,6 +15,7 @@ import Optimizations from "./pages/Optimizations";
 import Dashboard from "./pages/Dashboard";
 import Locations from "./pages/Locations";
 import AddLocation from "./pages/AddLocation";
+import NewOptimization from "./pages/NewOptimization";
 
 function AppContent() {
   const location = useLocation();
@@ -38,6 +39,7 @@ function AppContent() {
           <Route path="/locations" element={<Locations />} />
           <Route path="/locations/addlocation" element={<AddLocation />} />
           <Route path="/optimizations" element={<Optimizations />} />
+          <Route path="/optimizations/new" element={<NewOptimization />} />
         </Routes>
       </div>
     </>
